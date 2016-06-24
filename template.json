@@ -73,7 +73,7 @@
     },
     {
       "type": "atlas",
-      "artifact": "pedrostanaka/chef-php-lemp",
+      "artifact": "pedrostanaka/xenial-lemp",
       "artifact_type": "virtualbox.image",
       "metadata": {
         "created_at": "{{timestamp}}"
