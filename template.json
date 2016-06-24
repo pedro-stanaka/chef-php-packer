@@ -74,7 +74,7 @@
     {
       "type": "atlas",
       "artifact": "pedrostanaka/xenial-lemp",
-      "artifact_type": "virtualbox.image",
+      "artifact_type": "vagrant.box",
       "metadata": {
         "created_at": "{{timestamp}}"
       }
