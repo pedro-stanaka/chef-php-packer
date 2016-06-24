@@ -76,7 +76,8 @@
       "artifact": "pedrostanaka/xenial-lemp",
       "artifact_type": "vagrant.box",
       "metadata": {
-        "created_at": "{{timestamp}}"
+        "created_at": "{{timestamp}}",
+        "provider": "virtualbox"
       }
     }
   ],
