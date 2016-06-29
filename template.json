@@ -32,7 +32,7 @@
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/ubuntu-16.04/preseed.cfg ",
         "<enter>"
       ],
-      "ssh_wait_timeout": "60m",
+      "ssh_wait_timeout": "20m",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "shutdown_command": "sudo systemctl poweroff",
@@ -59,7 +59,18 @@
         "scripts/ubuntu/apt.sh",
         "scripts/ubuntu/virtualbox.sh",
         "scripts/common/vagrant.sh",
-        "scripts/common/sshd.sh",
+        "scripts/common/sshd.sh"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["cookbooks"],
+      "run_list": ["recipe[php_chef]"],
+      "install_command": "curl -L https://omnitruck.chef.io/install.sh | {{if .Sudo}}sudo{{end}} bash -s -- -v {{user `chef_version`}}"
+    },
+    {
+      "type": "shell",
+      "scripts": [
         "scripts/ubuntu/cleanup.sh",
         "scripts/common/minimize.sh"
       ]
@@ -73,7 +84,7 @@
     },
     {
       "type": "atlas",
-      "artifact": "pedrostanaka/xenial-lemp",
+      "artifact": "{{ user `atlas_artifact`}}",
       "artifact_type": "vagrant.box",
       "metadata": {
         "created_at": "{{timestamp}}",
@@ -85,8 +96,11 @@
     "compression_level": "7",
     "cpus": "1",
     "disk_size": "40000",
-    "headless": "true",
+    "headless": "false",
     "memory": "512",
-    "mirror": "http://releases.ubuntu.com"
+    "mirror": "http://releases.ubuntu.com",
+    "token" : "{{env `ATLAS_TOKEN`}}",
+    "chef_version": "12.11.18",
+    "atlas_artifact": "pedrostanaka/cake-oven"
   }
 }

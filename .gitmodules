@@ -1,0 +1,3 @@
+[submodule "recipes/php_chef"]
+	path = recipes/php_chef
+	url = https://github.com/pedro-stanaka/php_chef.git
