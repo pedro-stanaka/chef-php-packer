@@ -1,0 +1,62 @@
+{
+  "name": "php_chef",
+  "description": "Installs/Configures LEMP Stack",
+  "long_description": "# php_chef Cookbook\n[![Build Status](https://travis-ci.org/pedro-stanaka/php_chef.svg?branch=master)](https://travis-ci.org/pedro-stanaka/php_chef)\n\nThis cookbook installs/configures the following packages:\n\n* PHP7\n* NGINX\n* MySQL (MariaDB)\n* PostgreSQL (9.4)\n* NodeJS + NPM\n  * Grunt\n  * Gulp\n  * CoffeeScript\n  * Bower\n  * Yo\n\n## Quick start\n\nIf you want to use this cookbok as entry point for a Vagrant box. Check out my box:\n[CakeOven](https://atlas.hashicorp.com/pedrostanaka/boxes/cake-oven).\n\nIt is just as easy as running ```vagrant up```\n\n## Supported platforms\n\nThis cookbook shoul work on Ubuntu (14.04+), Debian (7+) and CentOS (7.2+).\nBut was tested against Ubuntu 14.04, Ubuntu 16.04 and Debian 8;\n\n## Attributes\n\n<table>\n  <tr>\n    <th>Key</th>\n    <th>Type</th>\n    <th>Description</th>\n    <th>Default</th>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['appname']</tt></td>\n    <td>string</td>\n    <td>Default app name</td>\n    <td><tt>mypp</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['servername']</tt></td>\n    <td>string</td>\n    <td>Default hostname</td>\n    <td><tt>myapp.local</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['webserver']['php_fpm_url']</tt></td>\n    <td>string</td>\n    <td>Default URL used by NGINX to connect on PHP-FPM</td>\n    <td><tt>/var/run/php-fpm.sock</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['database']['dbname']</tt></td>\n    <td>string</td>\n    <td>Name of the database for the application</td>\n    <td><tt>phpchef</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['database']['app']['username']</tt></td>\n    <td>string</td>\n    <td>The user for the application</td>\n    <td><tt>phpapp</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['php_chef']['database']['app']['password']</tt></td>\n    <td>string</td>\n    <td>password of the user</td>\n    <td><tt>appsecret</tt></td>\n  </tr>\n</table>\n\n\n## Usage\n\n### php_chef::default\n\nInclude `php_chef` in your node's `run_list`:\n\n```json\n{\n  \"run_list\": [\n    \"recipe[php_chef::default]\"\n  ]\n}\n```\n\n### Deploy in server\n\n1. Install [ChefDK](https://downloads.chef.io/chef-dk/)\n2. Clone the repo in a folder ```~/recipes/php_chef```\n3. Run ```berks install``` inside the root of the repo you just cloned ```~/recipes/php_chef```\n4. Install your recipes with ```berks vendor -b ~/recipes/php_chef/Berksfile```\n5. Rename the ```berks-cookbooks``` directory to ```cookbooks``` (i.e. ```mv berks-cookbooks cookbooks```)\n6. Run chef-client in local-mode ```sudo chef-client -o php_chef -z ```\n(sudo is necessary in order to install all the packages)\n7. Profit!!!!\n\n\n## License and Authors\n\nAuthor:: Pedro Tanaka (me@pedrotanaka.com.br)\n",
+  "maintainer": "Pedro Tanaka",
+  "maintainer_email": "me@pedrotanaka.com.br",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "user": "~> 0.4.2",
+    "php": "~> 1.9.0",
+    "nginx": "~> 2.7.6",
+    "database": "~> 5.1.2",
+    "mysql2_chef_gem": "= 0.1.0",
+    "postgresql": "~> 4.0.6",
+    "mariadb": "~> 0.3.1",
+    "locale": "~> 1.1.0",
+    "vim": "~> 2.0.1",
+    "htop": "~> 2.0.0",
+    "git": "~> 4.5.0",
+    "curl": ">= 0.0.0",
+    "zlib": ">= 0.0.0",
+    "zsh": "~> 2.0.0",
+    "lxmx_oh_my_zsh": "~> 0.5.0",
+    "tmux": "~> 1.5.0",
+    "rvm": "~> 0.9.4",
+    "hostsfile": "~> 2.4.5",
+    "nodejs": "~> 2.4.4",
+    "composer": "~> 2.3.0",
+    "apt": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0",
+  "source_url": "https://github.com/pedro-stanaka/php_chef",
+  "issues_url": "https://github.com/pedro-stanaka/php_chef/issues",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

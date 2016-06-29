@@ -1,0 +1,11 @@
+DEPENDENCIES
+  apt (~> 2.0)
+  tmux
+    path: .
+    metadata: true
+  yum (~> 2.0)
+
+GRAPH
+  apt (2.7.0)
+  tmux (1.4.1)
+  yum (2.4.4)
