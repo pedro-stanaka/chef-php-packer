@@ -66,7 +66,7 @@
       "type": "chef-solo",
       "cookbook_paths": ["cookbooks"],
       "run_list": ["recipe[php_chef]"],
-      "install_command": "curl -L https://omnitruck.chef.io/install.sh |  {{if .Sudo}}sudo{{end}} bash -s -- -v {{user `chef_version`}}"
+      "install_command": "curl -L https://omnitruck.chef.io/install.sh | {{if .Sudo}}sudo{{end}} bash -s -- -v {{user `chef_version`}}"
     },
     {
       "type": "shell",
@@ -84,7 +84,7 @@
     },
     {
       "type": "atlas",
-      "artifact": "pedrostanaka/xenial-lemp",
+      "artifact": "{{ user `atlas_artifact`}}",
       "artifact_type": "vagrant.box",
       "metadata": {
         "created_at": "{{timestamp}}",
@@ -100,6 +100,7 @@
     "memory": "512",
     "mirror": "http://releases.ubuntu.com",
     "token" : "{{env `ATLAS_TOKEN`}}",
-    "chef_version": "12.11.18"
+    "chef_version": "12.11.18",
+    "atlas_artifact": "pedrostanaka/cake-oven"
   }
 }
