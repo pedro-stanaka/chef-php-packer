@@ -1,0 +1,9 @@
+#!env bash
+
+PACKER=$(which packer)
+
+#$PACKER build template.json
+
+rm -rf output-* -rf
+
+rm packer_cache -rf
